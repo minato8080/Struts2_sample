@@ -38,7 +38,7 @@ public class DisplayListAction extends ActionSupport {
         
         return SUCCESS;
     }
-
+    
     @Getter @Setter
     private List<SampleProduct> products;
     @Getter @Setter

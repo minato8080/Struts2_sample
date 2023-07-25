@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Struts2</groupId>
 	<artifactId>Struts2</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>2.5.14.1</version>
 	<packaging>war</packaging>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -26,6 +26,11 @@
 			<artifactId>xwork</artifactId>
 			<version>1.0.5</version>
 		</dependency>
+      <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-core</artifactId>
+        <version>2.5.14.1</version>
+      </dependency>
 		
 
 	</dependencies>

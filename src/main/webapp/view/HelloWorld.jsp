@@ -11,5 +11,16 @@
 	Hello Struts2 world,
 	<s:property value="name" />
 	さん
+	<br>
+	<%-- 宣言 --%>
+	<%!int dCnt = 10;%>
+	<%-- スクリプトレット --%>
+	<%
+	int sCnt = 10;
+	dCnt++;
+	sCnt++;
+	out.println("dCnt: " + dCnt + "<br>");
+	out.println("sCnt: " + sCnt);
+	%>
 </body>
 </html>

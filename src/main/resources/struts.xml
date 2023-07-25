@@ -12,5 +12,8 @@
 		<action name="list" class="actions.DisplayListAction" method="execute">
 			<result name="success">/view/list.jsp</result>
 		</action>
+		<action name="confirm" class="actions.DisplayConfirmAction" method="execute">
+			<result name="success">/view/confirm.jsp</result>
+		</action>
 	</package>
 </struts>
