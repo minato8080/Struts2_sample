@@ -14,10 +14,10 @@ import model.SampleProduct;
 @Log4j2
 public class DisplayConfirmAction extends ActionSupport{
 	public String execute() {
-		log.info("- checkedList:{}" , checkedList);
+		log.info("- checkedList:{}" , checked_list);
 
-		if(checkedList == null) {
-			this.checkedList = new ArrayList<String>(){};
+		if(checked_list == null) {
+			this.checked_list = new ArrayList<String>(){};
 			return "success";
 		}
 		
@@ -25,7 +25,7 @@ public class DisplayConfirmAction extends ActionSupport{
 		ProductService service = new ProductService();
 		this.products = service.search();
 		
-		for(String ch:checkedList) {
+		for(String ch:checked_list) {
 			int index = Integer.parseInt(ch);
 			sumPrice += this.products.get(index).getPrice();	
 		}
@@ -33,7 +33,13 @@ public class DisplayConfirmAction extends ActionSupport{
 		return "success";
 	}
 	@Getter @Setter
-	private List<String> checkedList;
+	private List<String> checked_list;
+	@Getter @Setter
+	private String select_factory;
+	@Getter @Setter
+	private String select_person;
+	@Getter @Setter
+	private String select_date;
 	@Getter @Setter
 	private List<SampleProduct> products;
 	@Getter @Setter

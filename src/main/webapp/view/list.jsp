@@ -27,17 +27,17 @@
 	<div class="container" style="display: flex">
 		<table border="1">
 			<tr>
-				<s:select label="工場" name="factoryname" headerKey="1" headerValue=""
-					list="factory" style="width: 100px" />
+				<s:select label="工場" name="select_factory" headerKey="1" headerValue=""
+					list="factory" style="width: 100px" form="confirm" />
 			</tr>
 			<tr>
-				<s:select label="担当者" name="personname" headerKey="1" headerValue=""
-					list="person" style="width: 100px" />
+				<s:select label="担当者" name="select_person" headerKey="1" headerValue=""
+					list="person" style="width: 100px" form="confirm" />
 			</tr>
 			<tr>
 				<td>日付</td>
-				<td><input class="input" id="myCal" type="text"
-					style="width: 92px" /></td>
+				<td><input class="input" name="select_date" id="myCal" type="text"
+					style="width: 92px" form="confirm" /></td>
 				<script>
 					flatpickr("#myCal", {
 						locale : "ja"
@@ -109,7 +109,7 @@
 			<tbody>
 				<s:iterator value="products" var="p" status="st">
 					<tr>
-						<td><input type="checkbox" name="checkedList" class="checks"
+						<td><input type="checkbox" name="checked_list" class="checks"
 							value="${st.index}" form="confirm" /></td>
 						<td><s:property value="id" /></td>
 						<td><s:property value="name" /></td>
