@@ -44,7 +44,7 @@
 				</s:iterator>
 				<tr>
 					<td>総数</td>
-					<td>${products.size()}</td>
+					<td>${checkedList.size()}</td>
 					<td>合計</td>
 					<td>${sumPrice}</td>
 				</tr>

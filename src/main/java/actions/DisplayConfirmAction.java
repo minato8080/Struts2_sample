@@ -1,5 +1,6 @@
 package actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork.ActionSupport;
@@ -15,11 +16,15 @@ public class DisplayConfirmAction extends ActionSupport{
 	public String execute() {
 		log.info("- checkedList:{}" , checkedList);
 
+		if(checkedList == null) {
+			this.checkedList = new ArrayList<String>(){};
+			return "success";
+		}
+		
 		//ダミーを格納
 		ProductService service = new ProductService();
 		this.products = service.search();
 		
-		sumPrice=0;
 		for(String ch:checkedList) {
 			int index = Integer.parseInt(ch);
 			sumPrice += this.products.get(index).getPrice();	
@@ -32,5 +37,5 @@ public class DisplayConfirmAction extends ActionSupport{
 	@Getter @Setter
 	private List<SampleProduct> products;
 	@Getter @Setter
-	private int sumPrice;
+	private int sumPrice = 0;
 }
