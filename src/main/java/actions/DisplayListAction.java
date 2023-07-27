@@ -8,7 +8,6 @@ import com.opensymphony.xwork.ActionSupport;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j2;
 import model.ProductService;
 import model.SampleProduct;
 import model.WorkListData;
@@ -16,14 +15,10 @@ import model.WorkListData;
 /**
  * <code>Set welcome message.</code>
  */
-@Log4j2
 public class DisplayListAction extends ActionSupport {
     public String execute() throws Exception {
-    	//ダミーを格納
-        ProductService service = new ProductService();
+        ProductService service = ProductService.getInstance();
         this.products = service.search();
-        log.info("- search:{}" , products);
-        
 
     	display();
         
@@ -31,12 +26,12 @@ public class DisplayListAction extends ActionSupport {
     }
     
     public String update() throws Exception {
-    	//ダミーを格納
-        ProductService service = new ProductService();
-        this.products = service.search();
+        ProductService service = ProductService.getInstance();
         
 		///新規(N)ボタンからデータがあれば受け取る
         if(n_id==null) {
+            this.products = service.search();
+            
         	display();
         	
             return SUCCESS;
@@ -50,8 +45,10 @@ public class DisplayListAction extends ActionSupport {
 			boolean editable = n_editable.get(i);
 			
 			SampleProduct newProduct = new SampleProduct(id, name, stock, secret, editable, 100);
-			products.add(newProduct);
+			service.insert(newProduct);
         }
+
+        this.products = service.search();
         
     	display();
         
