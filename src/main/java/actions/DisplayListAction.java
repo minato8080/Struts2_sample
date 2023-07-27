@@ -19,7 +19,6 @@ import model.WorkListData;
 @Log4j2
 public class DisplayListAction extends ActionSupport {
     public String execute() throws Exception {
-    	
     	//ダミーを格納
         ProductService service = new ProductService();
         this.products = service.search();
@@ -32,12 +31,11 @@ public class DisplayListAction extends ActionSupport {
     }
     
     public String update() throws Exception {
-
     	//ダミーを格納
         ProductService service = new ProductService();
         this.products = service.search();
         
-		///新規(N)ボタンのデータ受け取り
+		///新規(N)ボタンからデータがあれば受け取る
         if(n_id==null) {
         	display();
         	

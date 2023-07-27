@@ -3,13 +3,13 @@
  * ListPageのbutton_U　更新処理
  * ListPageのbutton_N　新規処理
  */
-var a_counter = 0;
-var n_counter = 0;
+var aCnt = 0;
+var nCnt = 0;
 
 $(function() {
 	$('input[name=button_A]').click(function() {
-		$('input[class=checks]').prop('checked', a_counter % 2 == 0);
-		a_counter++;
+		$('input[class=checks]').prop('checked', aCnt % 2 == 0);
+		aCnt++;
 	});
 });
 
@@ -19,13 +19,20 @@ $(function() {$('input[name=button_U]').click(function() {
 });
 
 $(function() {$('input[name=button_N]').click(function() {
-	var add_point = document.getElementById('operation_table');
-	var add_text=
+	var addPoint = document.getElementById('operation_table');
+
+	var stockOptionElements = "";
+	var numMax = 100;
+	for (var i = 0; i <= numMax ; i++){
+		stockOptionElements += `<option value="${i}" label="${i}" />`;
+	}
+	
+	var addElements =
 	`<tr>` +
-		`<td><input type="checkbox" name="n_checked_list" class="checks"value="${n_counter}"form="update" /></td>`+
-		`<td><input type="text" name="n_id" size="1"form="update" /></td>`+
-		`<td><input type="text" name="n_name" size="12"form="update" /></td>`+
-		`<td><input type="text" name="n_stock" size="4"form="update" /></td>`+
+		`<td><input type="checkbox" name="n_checked_list" class="checks"value="${nCnt}"form="update" /></td>`+
+		`<td><input type="text" name="n_id" maxlength="3" size="1"form="update" /></td>`+
+		`<td><input type="text" name="n_name" maxlength="10" size="12"form="update" /></td>`+
+		`<td><select name="n_stock" form="update" />${stockOptionElements}</td>`+
 		`<td><select name="n_secret"form="update" />`+
 			`<option value="true" label="o"/>`+
 			`<option value="false" label="x"/></td>`+
@@ -35,8 +42,8 @@ $(function() {$('input[name=button_N]').click(function() {
 	`</tr>`
 	;
 	
-	add_point.insertAdjacentHTML('beforeend',add_text);
+	addPoint.insertAdjacentHTML('beforeend',addElements);
 	
-	n_counter++;
+	nCnt++;
 	});
 });
