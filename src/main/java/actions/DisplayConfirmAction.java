@@ -26,7 +26,7 @@ public class DisplayConfirmAction extends ActionSupport{
 		
 		for(String ch:checked_list) {
 			int index = Integer.parseInt(ch);
-			sumPrice += this.products.get(index).getPrice();	
+			sumPrice += this.products.get(index).bill();	
 		}
 
 		return "success";

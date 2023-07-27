@@ -40,7 +40,7 @@ public class DisplayListAction extends ActionSupport {
 		for (int i = 0; i < length; i++) {
 			String id = n_id.get(i);
 			String name = n_name.get(i);
-			long stock = Integer.parseInt(n_stock.get(i));
+			int stock = Integer.parseInt(n_stock.get(i));
 			boolean secret = n_secret.get(i);
 			boolean editable = n_editable.get(i);
 			
