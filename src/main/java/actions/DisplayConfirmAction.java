@@ -20,9 +20,8 @@ public class DisplayConfirmAction extends ActionSupport{
 			this.checked_list = new ArrayList<String>(){};
 			return "success";
 		}
-		
-		//ダミーを格納
-		ProductService service = new ProductService();
+
+        ProductService service = ProductService.getInstance();
 		this.products = service.search();
 		
 		for(String ch:checked_list) {
