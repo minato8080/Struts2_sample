@@ -28,11 +28,11 @@ $(function() {$('input[name=button_N]').click(function() {
 		`<td><input type="text" name="n_stock" size="4"form="update" /></td>`+
 		`<td><select name="n_secret"form="update" />`+
 			`<option value="true" label="o"/>`+
-			`<option value="true" label="x"/></td>`+
+			`<option value="false" label="x"/></td>`+
 		`<td><select name="n_editable"form="update" />`+
 			`<option value="true" label="o"/>`+
-			`<option value="true" label="x"/></td>`+
-	`</tr>`	
+			`<option value="false" label="x"/></td>`+
+	`</tr>`
 	;
 	
 	add_point.insertAdjacentHTML('beforeend',add_text);

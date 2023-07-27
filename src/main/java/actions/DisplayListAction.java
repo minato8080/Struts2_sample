@@ -1,6 +1,5 @@
 package actions;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -38,12 +37,23 @@ public class DisplayListAction extends ActionSupport {
         ProductService service = new ProductService();
         this.products = service.search();
         
-		/***********新規項目のデータ受け取り*************/
-		if(n_checked_list == null) {
-			this.n_checked_list = new ArrayList<String>(){};
-		}
-        log.info("- n_checked_list:{}" , n_checked_list);
-		/***********新規項目のデータ受け取り*************/
+		///新規(N)ボタンのデータ受け取り
+        if(n_id==null) {
+        	display();
+        	
+            return SUCCESS;
+        }
+		int length = n_id.size();
+		for (int i = 0; i < length; i++) {
+			String id = n_id.get(i);
+			String name = n_name.get(i);
+			long stock = Integer.parseInt(n_stock.get(i));
+			boolean secret = n_secret.get(i);
+			boolean editable = n_editable.get(i);
+			
+			SampleProduct newProduct = new SampleProduct(id, name, stock, secret, editable, 100);
+			products.add(newProduct);
+        }
         
     	display();
         
@@ -90,7 +100,7 @@ public class DisplayListAction extends ActionSupport {
     @Getter @Setter
     private List<String> n_stock;
     @Getter @Setter
-    private List<String> n_secret;
+    private List<Boolean> n_secret;
     @Getter @Setter
-    private List<String> n_editable;
+    private List<Boolean> n_editable;
 }

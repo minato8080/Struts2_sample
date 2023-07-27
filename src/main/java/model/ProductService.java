@@ -1,17 +1,14 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author A-pZ
- *
- */
 public class ProductService {
     public List<SampleProduct> search() {
-        List<SampleProduct> resultList =
+        List<SampleProduct> resultList = new ArrayList<SampleProduct>();
 
-        Arrays.asList(
+        resultList.addAll(Arrays.asList(
             new SampleProduct("A-1", "試作品X-290PA1", 10, true, true,100),
             new SampleProduct("A-2", "試作品X-290PA2", 20, true, true,200),
             new SampleProduct("B-3", "試作品X-B3", 10, true, true,156),
@@ -31,7 +28,7 @@ public class ProductService {
             new SampleProduct("D-7", "試作品X-D7", 10, false, true,464),
             new SampleProduct("D-8", "試作品X-D8", 50, false, true,987),
             new SampleProduct("E-9", "試作品X-E9", 10, true, true,2200)
-        );
+        ));
 
         return resultList;
     }
