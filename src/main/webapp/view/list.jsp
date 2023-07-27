@@ -91,7 +91,9 @@
 				onclick="location.href='/Struts2/'" />
 		</div>
 		<div>
-			<s:submit value="更新(U)" name="button_U" accesskey="u" />
+			<s:form action="update" id="update">
+				<s:submit value="更新(U)" name="button_U" accesskey="u" />
+			</s:form>
 		</div>
 	</div>
 
@@ -106,7 +108,7 @@
 				<th>公開可？</th>
 				<th>編集可？</th>
 			</thead>
-			<tbody>
+			<tbody id="operation_table">
 				<s:iterator value="products" var="p" status="st">
 					<tr>
 						<td><input type="checkbox" name="checked_list" class="checks"

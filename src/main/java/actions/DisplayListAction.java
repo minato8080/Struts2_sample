@@ -1,5 +1,6 @@
 package actions;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -22,21 +23,45 @@ public class DisplayListAction extends ActionSupport {
     	
     	//ダミーを格納
         ProductService service = new ProductService();
-
         this.products = service.search();
         log.info("- search:{}" , products);
         
 
+    	display();
+        
+        return SUCCESS;
+    }
+    
+    public String update() throws Exception {
+
+    	//ダミーを格納
+        ProductService service = new ProductService();
+        this.products = service.search();
+        
+		/***********新規項目のデータ受け取り*************/
+		if(n_checked_list == null) {
+			this.n_checked_list = new ArrayList<String>(){};
+		}
+        log.info("- n_checked_list:{}" , n_checked_list);
+		/***********新規項目のデータ受け取り*************/
+        
+    	display();
+        
+        return SUCCESS;
+    }
+    
+    private void display() {
     	//画面用のデータを格納
         WorkListData workListData = new WorkListData();
         this.month = workListData.getMonth();
         this.person = workListData.getPerson();
         this.factory = workListData.getFactory();
-        setBill("huga");
-        setDeliver("hoge");
+        
         setDate(new Date());
         
-        return SUCCESS;
+        //ダミー
+        setBill("huga");
+        setDeliver("hoge");
     }
     
     @Getter @Setter
@@ -53,4 +78,19 @@ public class DisplayListAction extends ActionSupport {
     private String bill;
     @Getter @Setter
     private String deliver;
+    
+    
+    //新規(N)ボタンから送信されるデータ
+    @Getter @Setter
+    private List<String> n_checked_list;
+    @Getter @Setter
+    private List<String> n_id;
+    @Getter @Setter
+    private List<String> n_name;
+    @Getter @Setter
+    private List<String> n_stock;
+    @Getter @Setter
+    private List<String> n_secret;
+    @Getter @Setter
+    private List<String> n_editable;
 }
