@@ -31,6 +31,10 @@ public class DisplayConfirmAction extends ActionSupport{
 
 		return "success";
 	}
+
+	@Getter @Setter
+	private List<SampleProduct> products;
+	
 	@Getter @Setter
 	private List<String> checked_list;
 	@Getter @Setter
@@ -39,8 +43,7 @@ public class DisplayConfirmAction extends ActionSupport{
 	private String select_person;
 	@Getter @Setter
 	private String select_date;
-	@Getter @Setter
-	private List<SampleProduct> products;
+	
 	@Getter @Setter
 	private int sumPrice = 0;
 }

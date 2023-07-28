@@ -34,6 +34,7 @@ public class WorkListData {
 		this.month.put("11","November");
 		this.month.put("12","December");
     }
+    
     @Getter @Setter
     private List<String> person;
     
@@ -47,6 +48,7 @@ public class WorkListData {
 		this.person.add("東野");
 		this.person.add("後藤");
     }
+    
     @Getter @Setter
     private List<String> factory;
     
