@@ -12,6 +12,7 @@
 
 <!-- ページ内アクション -->
 <script src="js/ListPageButtons.js"></script>
+<link rel="stylesheet" href="view/style.css">
 
 <!-- flatpickr -->
 <link rel="stylesheet"
@@ -27,17 +28,17 @@
 	<div class="container" style="display: flex">
 		<table border="1">
 			<tr>
-				<s:select label="工場" name="select_factory" headerKey="1" headerValue=""
-					list="factory" style="width: 100px" form="confirm" />
+				<s:select label="工場" name="select_factory" headerKey="1"
+					headerValue="" list="factory" style="width: 100px" form="confirm" />
 			</tr>
 			<tr>
-				<s:select label="担当者" name="select_person" headerKey="1" headerValue=""
-					list="person" style="width: 100px" form="confirm" />
+				<s:select label="担当者" name="select_person" headerKey="1"
+					headerValue="" list="person" style="width: 100px" form="confirm" />
 			</tr>
 			<tr>
 				<td>日付</td>
-				<td><input class="input" name="select_date" id="myCal" type="text"
-					style="width: 92px" form="confirm" /></td>
+				<td><input class="input" name="select_date" id="myCal"
+					type="text" style="width: 92px" form="confirm" /></td>
 				<script>
 					flatpickr("#myCal", {
 						locale : "ja"
@@ -63,8 +64,6 @@
 			</tr>
 		</table>
 	</div>
-
-
 	<div class="container" style="display: flex">
 		<div>
 			<s:submit value="検索(S)" name="button_S" />
@@ -122,6 +121,18 @@
 				</s:iterator>
 			</tbody>
 		</table>
+	</div>
+
+	<!-- ポップアップ -->
+	<div id="popup-wrapper">
+		<div id="popup-inside">
+			<div id="close">x</div>
+			<div id="message">
+				<h2>検索</h2>
+				<input type="text" id="s_text"/>
+				<s:submit value="実行(E)" name="button_E" />
+			</div>
+		</div>
 	</div>
 </body>
 </html>

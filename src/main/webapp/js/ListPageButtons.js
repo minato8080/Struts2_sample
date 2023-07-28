@@ -51,3 +51,25 @@ $(function() {
 		nCnt++;
 	});
 });
+
+// ListPageのbutton_S 検索画面ポップアップ処理
+$(function() {
+	$('input[name=button_S]').click(function() {
+		var popupWrapper = document.getElementById('popup-wrapper');
+		popupWrapper.style.display = "block";
+	});
+});
+
+$(function() {
+	$(document.getElementById('close')).click(function(e) {
+		var popupWrapper = document.getElementById('popup-wrapper');
+		var close = document.getElementById('close');
+		
+		if (e.target.id === popupWrapper.id || e.target.id === close.id) {
+			popupWrapper.style.display = 'none';
+			
+			var textareaForm = document.getElementById("s_text");
+			textareaForm.value = '';
+		}
+	});
+});
