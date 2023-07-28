@@ -122,16 +122,16 @@
 			</tbody>
 		</table>
 	</div>
-
-	<!-- ポップアップ -->
-	<div id="popup-wrapper">
-		<div id="popup-inside">
-			<div id="close">x</div>
-			<div id="message">
+	<!-- 検索(S)のポップアップ -->
+	<div id="s_popup_wrapper">
+		<div id="s_popup_inside">
+			<div id="s_close">x</div>
 				<h2>検索</h2>
-				<input type="text" id="s_text"/>
+				<div style="text-align:right;width:90%;">
+					<div>id:<input type="text" id="s_id"/></div>
+					<div>製品名:<input type="text" id="s_name"/></div>
+				</div>
 				<s:submit value="実行(E)" name="button_E" />
-			</div>
 		</div>
 	</div>
 </body>

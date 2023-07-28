@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#popup-wrapper {
+#s_popup_wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   display: none;
 }
 
-#popup-inside {
+#s_popup_inside {
   text-align: center;
   width: 100%;
   max-width: 300px;
@@ -20,7 +20,7 @@
   border: solid;
 }
 
-#close {
+#s_close {
   position: absolute;
   width: 20px;
   top: 0;
